@@ -1,0 +1,32 @@
+{
+  "name": "get-waxd",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test-scraper": "bun run src/test-local.ts",
+    "test-live": "bun run test-live.ts",
+    "install-browsers": "bunx playwright install",
+    "dev": "sst dev",
+    "deploy": "sst deploy",
+    "remove": "sst remove"
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.888.0",
+    "@aws-sdk/client-lambda": "^3.888.0",
+    "@aws-sdk/client-sqs": "^3.888.0",
+    "@aws-sdk/lib-dynamodb": "^3.888.0",
+    "@types/aws-lambda": "^8.10.152",
+    "@types/uuid": "^10.0.0",
+    "aws-sdk": "^2.1692.0",
+    "playwright": "^1.55.0",
+    "sst": "3.17.13",
+    "uuid": "^13.0.0"
+  }
+}
