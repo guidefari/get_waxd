@@ -25,7 +25,7 @@ export async function scrapeMrVinyl(url: string, page: any): Promise<ScraperResu
   try {
     console.log(`Scraping Mr Vinyl page: ${url}`);
 
-    await page.goto(url, { waitUntil: "networkidle" });
+    await page.goto(url, { waitUntil: "networkidle0" });
     await page.waitForSelector(".product-item", { timeout: 30000 });
 
     const data = await page.evaluate(() => {

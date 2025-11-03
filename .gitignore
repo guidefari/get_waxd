@@ -35,3 +35,7 @@ report.[0-9]_.[0-9]_.[0-9]_.[0-9]_.json
 
 # sst
 .sst
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

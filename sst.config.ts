@@ -22,18 +22,32 @@ export default $config({
       },
     });
 
-    const scrapeQueue = new sst.aws.Queue("ScrapeQueue");
+    const scrapeQueue = new sst.aws.Queue("ScrapeQueue",);
 
     const scrapeFunction = new sst.aws.Function("ScrapePage", {
       handler: "./src/functions/scrape-page.handler",
       link: [scrapeDataTable],
       timeout: "5 minutes",
-      memory: "1024 MB",
-      url: true
+      memory: "1600 MB",
+      url: true,
+      nodejs: {
+        install: ["@sparticuz/chromium", "puppeteer-core"],
+      },
+      environment: {
+        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true",
+      },
     });
 
     scrapeQueue.subscribe("./src/functions/process-scrape-job.handler", {
       link: [scrapeDataTable],
+      memory: "1600 MB",
+      timeout: "5 minutes",
+      nodejs: {
+        install: ["@sparticuz/chromium", "puppeteer-core"],
+      },
+      environment: {
+        PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true",
+      },
     });
 
     const triggerFunction = new sst.aws.Function("TriggerScrape", {

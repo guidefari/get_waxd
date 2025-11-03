@@ -1,8 +1,8 @@
-import { APIGatewayProxyHandler } from "aws-lambda";
+import type { APIGatewayProxyHandler } from "aws-lambda";
 import { SQSClient, SendMessageCommand } from "@aws-sdk/client-sqs";
 import { Resource } from "sst";
 import { getSiteConfig, generatePageUrls } from "../scrapers";
-import { ScrapeJobMessage } from "../types/scraper";
+import type { ScrapeJobMessage } from "../types/scraper";
 
 const sqs = new SQSClient({});
 

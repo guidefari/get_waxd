@@ -5,9 +5,9 @@ import { getScraper, getAllSiteConfigs, generatePageUrls } from "./scrapers";
 async function testMrVinylScraper() {
   console.log("🚀 Testing Mr Vinyl scraper locally...");
 
-  const { chromium } = require("playwright");
+  const puppeteer = require("puppeteer");
 
-  const browser = await chromium.launch({
+  const browser = await puppeteer.launch({
     headless: false,
     args: ["--no-sandbox", "--disable-dev-shm-usage"],
   });
