@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "test-scraper": "bun run src/test-local.ts",
+    "test-vinyl": "bun run src/test-firecrawl.ts",
     "test-live": "bun run test-live.ts",
     "install-browsers": "bunx playwright install",
     "dev": "sst dev",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.888.0",
     "@aws-sdk/client-lambda": "^3.888.0",
+    "@aws-sdk/client-ses": "^3.888.0",
     "@aws-sdk/client-sqs": "^3.888.0",
     "@aws-sdk/lib-dynamodb": "^3.888.0",
     "@sparticuz/chromium": "^138.0.2",
@@ -32,6 +34,7 @@
     "playwright-core": "^1.55.0",
     "puppeteer": "^24.20.0",
     "puppeteer-core": "^24.20.0",
+    "@mendable/firecrawl-js": "^1.22.0",
     "sst": "3.17.13",
     "uuid": "^13.0.0"
   }
